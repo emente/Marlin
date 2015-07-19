@@ -17,6 +17,92 @@
 #define DIGIPOTSS_PIN -1
 #endif
 
+
+
+
+
+
+
+///////////// MNT START ///////////////////////////////////////////////////////////////
+
+#if MB(MNT)
+#define	KNOWN_BOARD 1
+#ifndef __AVR_ATmega2560__
+#error Oops!  Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' menu.
+#endif
+
+#define X_STEP_PIN         33
+#define X_DIR_PIN          49
+#define X_ENABLE_PIN       45
+#define X_MIN_PIN          23
+#define X_MAX_PIN          37
+
+#define Y_STEP_PIN         32
+#define Y_DIR_PIN          48
+#define Y_ENABLE_PIN       44
+#define Y_MIN_PIN          25
+#define Y_MAX_PIN          39
+
+#define Z_STEP_PIN         31
+#define Z_DIR_PIN          47
+#define Z_ENABLE_PIN       43
+#define Z_MIN_PIN          27
+#define Z_MAX_PIN          41
+
+#define E0_STEP_PIN        30
+#define E0_DIR_PIN         46
+#define E0_ENABLE_PIN      42 
+
+#define LED_PIN            13
+#define FAN_PIN            11
+#define BEEPER             12
+
+#define MNT_CONTROLLERFAN   6
+#define MNT_HEATFAN        10
+
+#define PS_ON_PIN          -1
+#define KILL_PIN           -1
+
+#define HEATER_0_PIN        8 
+#define HEATER_1_PIN       -1
+#define HEATER_2_PIN       -1
+#define HEATER_BED_PIN      9 
+
+#define TEMP_0_PIN          8   // MUST USE ANALOG INPUT NUMBERING NOT DIGITAL OUTPUT NUMBERING!!!!!!!!!
+#define TEMP_1_PIN          9   // MUST USE ANALOG INPUT NUMBERING NOT DIGITAL OUTPUT NUMBERING!!!!!!!!!
+#define TEMP_2_PIN         -1   // MUST USE ANALOG INPUT NUMBERING NOT DIGITAL OUTPUT NUMBERING!!!!!!!!!
+#define TEMP_BED_PIN       10
+
+#define SUICIDE_PIN -1    //has to be defined; otherwise Power_off doesn't work
+#define KILL_PIN -1
+
+#define SDPOWER                 -1
+#define SDSS                    -1
+#define SDCARDDETECT	        -1
+#define LCD_PINS_RS	        -1
+#define LCD_PINS_ENABLE		-1
+#define LCD_PINS_D4 		-1
+#define LCD_PINS_D5 		-1
+#define LCD_PINS_D6 		-1
+#define LCD_PINS_D7 		-1
+#define BTN_EN1 -1
+#define BTN_EN2 -1
+#define BTN_ENC -1		  //the click 
+ 
+#endif /* 9999 */ 
+
+///////////// MNT END /////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
 /****************************************************************************************
 * 5DPrint D8 Driver board
 * https://bitbucket.org/makible/5dprint-d8-controller-board

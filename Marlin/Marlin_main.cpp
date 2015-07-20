@@ -694,8 +694,9 @@ void get_command()
           if(gcode_N != gcode_LastN+1 && (strstr_P(cmdbuffer[bufindw], PSTR("M110")) == NULL) ) {
             SERIAL_ERROR_START;
             SERIAL_ERRORPGM(MSG_ERR_LINE_NO);
-            SERIAL_ERRORLN(gcode_LastN);
-            //Serial.println(gcode_N);
+            SERIAL_ERROR(gcode_LastN);
+            SERIAL_ERROR(" thisline:");
+            SERIAL_ERRORLN(gcode_N);
             FlushSerialRequestResend();
             serial_count = 0;
             return;
@@ -708,10 +709,18 @@ void get_command()
             while(cmdbuffer[bufindw][count] != '*') checksum = checksum^cmdbuffer[bufindw][count++];
             strchr_pointer = strchr(cmdbuffer[bufindw], '*');
 
-            if( (int)(strtod(&cmdbuffer[bufindw][strchr_pointer - cmdbuffer[bufindw] + 1], NULL)) != checksum) {
+            int tempchksum = (int)(strtod(&cmdbuffer[bufindw][strchr_pointer - cmdbuffer[bufindw] + 1], NULL));
+            if(tempchksum != checksum) {
               SERIAL_ERROR_START;
               SERIAL_ERRORPGM(MSG_ERR_CHECKSUM_MISMATCH);
-              SERIAL_ERRORLN(gcode_LastN);
+              SERIAL_ERROR(gcode_LastN);
+              SERIAL_ERROR(" lineno:");
+              SERIAL_ERROR(gcode_N);
+              SERIAL_ERROR(" mecrc:");
+              SERIAL_ERROR(tmpchksum);
+              SERIAL_ERROR(" linecrc:");
+              SERIAL_ERRORLN(checksum);
+              
               FlushSerialRequestResend();
               serial_count = 0;
               return;

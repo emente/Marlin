@@ -1,0 +1,49 @@
+Send: N735 G1 X104.700 Y90.473 E6.04126 F1800.000*46
+Recv: ok
+Send: N736 G1 X98.170 Y88.655 F6000.000*84
+Recv: Error:checksum mismatch, Last Line: 732 this line:733 has crc:102 expected crc:70
+Recv: Resend: 733
+Send: N733 G1 X103.012 Y89.177 E6.03066 F1800.000*32
+Recv: ok
+Recv: Error:Line Number is not Last Line Number+1, Last Line: 732 this line:736 expected:733
+Recv: Resend: 733
+Send: N733 G1 X103.012 Y89.177 E6.03066 F1800.000*32
+Recv: ok
+Recv: echo: cold extrusion prevented
+Recv: ok
+Send: N734 G1 X104.223 Y89.996 F6000.000*102
+Recv: Error:Line Number is not Last Line Number+1, Last Line: 733 this line:733 expected:734
+Recv: Resend: 734
+Send: N734 G1 X104.223 Y89.996 F6000.000*102
+Recv: ok
+Recv: ok
+Send: N735 G1 X104.700 Y90.473 E6.04126 F1800.000*46
+Recv: Error:Line Number is not Last Line Number+1, Last Line: 734 this line:734 expected:735
+Recv: Resend: 735
+Send: N735 G1 X104.700 Y90.473 E6.04126 F1800.000*46
+Recv: ok
+Recv: echo: cold extrusion prevented
+Recv: ok
+Send: N736 G1 X98.170 Y88.655 F6000.000*84
+Recv: Error:Line Number is not Last Line Number+1, Last Line: 735 this line:735 expected:736
+Recv: Resend: 736
+Send: N736 G1 X98.170 Y88.655 F6000.000*84
+Recv: ok
+Recv: ok
+Send: N737 G1 X101.222 Y91.706 E6.10905 F1800.000*32
+Recv: Error:Line Number is not Last Line Number+1, Last Line: 736 this line:736 expected:737
+Recv: Resend: 737
+Send: N737 G1 X101.222 Y91.706 E6.10905 F1800.000*32
+Recv: ok
+Recv: echo: cold extrusion prevented
+Recv: ok
+Send: N738 G1 X100.750 Y91.627 E6.11656*85
+Recv: Error:Line Number is not Last Line Number+1, Last Line: 737 this line:737 expected:738
+Recv: Resend: 738
+Send: N738 G1 X100.750 Y91.627 E6.11656*85
+Recv: ok
+Recv: ok
+Send: M105
+Recv: Error:Line Number is not Last Line Number+1, Last Line: 738 this line:738 expected:739
+Recv: Resend: 739
+Changing monitoring state from 'Printing' to 'Error: Printer requested li...'

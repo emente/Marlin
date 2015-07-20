@@ -384,7 +384,6 @@ unsigned long stoptime=0;
 
 static uint8_t tmp_extruder;
 
-
 bool Stopped=false;
 
 #if NUM_SERVOS > 0
@@ -719,7 +718,7 @@ void get_command()
               SERIAL_ERROR(" this line:");
               SERIAL_ERROR(gcode_N);
               SERIAL_ERROR(" has crc:");
-              SERIAL_ERROR(tmpchksum);
+              SERIAL_ERROR(tempchksum);
               SERIAL_ERROR(" expected crc:");
               SERIAL_ERRORLN(checksum);
               

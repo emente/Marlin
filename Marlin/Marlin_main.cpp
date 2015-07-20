@@ -695,8 +695,10 @@ void get_command()
             SERIAL_ERROR_START;
             SERIAL_ERRORPGM(MSG_ERR_LINE_NO);
             SERIAL_ERROR(gcode_LastN);
-            SERIAL_ERROR(" thisline:");
-            SERIAL_ERRORLN(gcode_N);
+            SERIAL_ERROR(" this line:");
+            SERIAL_ERROR(gcode_N);
+            SERIAL_ERROR(" expected:");
+            SERIAL_ERRORLN(gcode_LastN+1);
             FlushSerialRequestResend();
             serial_count = 0;
             return;
@@ -714,11 +716,11 @@ void get_command()
               SERIAL_ERROR_START;
               SERIAL_ERRORPGM(MSG_ERR_CHECKSUM_MISMATCH);
               SERIAL_ERROR(gcode_LastN);
-              SERIAL_ERROR(" lineno:");
+              SERIAL_ERROR(" this line:");
               SERIAL_ERROR(gcode_N);
-              SERIAL_ERROR(" mecrc:");
+              SERIAL_ERROR(" has crc:");
               SERIAL_ERROR(tmpchksum);
-              SERIAL_ERROR(" linecrc:");
+              SERIAL_ERROR(" expected crc:");
               SERIAL_ERRORLN(checksum);
               
               FlushSerialRequestResend();
@@ -1363,6 +1365,7 @@ static void dock_sled(bool dock, int offset=0) {
 }
 #endif
 
+boolean LED_FLAG=false;
 void process_commands()
 {
   unsigned long codenum; //throw away variable
@@ -1370,6 +1373,10 @@ void process_commands()
 #ifdef ENABLE_AUTO_BED_LEVELING
   float x_tmp, y_tmp, z_tmp, real_z;
 #endif
+
+   LED_FLAG=!LED_FLAG;
+   WRITE(LED_PIN,LED_FLAG ? HIGH : LOW);
+
   if(code_seen('G'))
   {
     switch((int)code_value())

@@ -694,9 +694,9 @@ void get_command()
             SERIAL_ERROR_START;
             SERIAL_ERRORPGM(MSG_ERR_LINE_NO);
             SERIAL_ERROR(gcode_LastN);
-            SERIAL_ERROR(" this line:");
+            SERIAL_ERROR(" gcode_N:");
             SERIAL_ERROR(gcode_N);
-            SERIAL_ERROR(" expected:");
+            SERIAL_ERROR(" gcode_LastN+1:");
             SERIAL_ERRORLN(gcode_LastN+1);
             FlushSerialRequestResend();
             serial_count = 0;
@@ -715,12 +715,12 @@ void get_command()
               SERIAL_ERROR_START;
               SERIAL_ERRORPGM(MSG_ERR_CHECKSUM_MISMATCH);
               SERIAL_ERROR(gcode_LastN);
-              SERIAL_ERROR(" this line:");
+              SERIAL_ERROR(" gcode_N:");
               SERIAL_ERROR(gcode_N);
-              SERIAL_ERROR(" has crc:");
-              SERIAL_ERROR(tempchksum);
+              SERIAL_ERROR(" crc in line:");
+              MSerial.print(tempchksum,DEC);
               SERIAL_ERROR(" expected crc:");
-              SERIAL_ERRORLN(checksum);
+              MSerial.println(checksum,DEC);
               
               FlushSerialRequestResend();
               serial_count = 0;

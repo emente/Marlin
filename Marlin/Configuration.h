@@ -44,7 +44,7 @@
 // The following define selects which electronics board you have.
 // Please choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_MNT
+  #define MOTHERBOARD BOARD_RAMPS_13_EFB
 #endif
 
 // Define this to set a custom name for your generic Mendel,
@@ -146,7 +146,7 @@
 // PID settings:
 // Comment the following line to disable PID and enable bang-bang.
 #define PIDTEMP
-#define BANG_MAX 200 // limits current to nozzle while in bang-bang mode; 255=full current
+#define BANG_MAX 128 // limits current to nozzle while in bang-bang mode; 255=full current
 #define PID_MAX BANG_MAX // limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #ifdef PIDTEMP
   //#define PID_DEBUG // Sends debug data to the serial port.
@@ -272,20 +272,20 @@ your extruder heater takes 2 minutes to hit the target on heating.
 
 #ifndef ENDSTOPPULLUPS
   // fine endstop settings: Individual pullups. will be ignored if ENDSTOPPULLUPS is defined
-  // #define ENDSTOPPULLUP_XMAX
+   #define ENDSTOPPULLUP_XMAX
   // #define ENDSTOPPULLUP_YMAX
-  // #define ENDSTOPPULLUP_ZMAX
-  // #define ENDSTOPPULLUP_XMIN
+   #define ENDSTOPPULLUP_ZMAX
+   #define ENDSTOPPULLUP_XMIN
   // #define ENDSTOPPULLUP_YMIN
-  // #define ENDSTOPPULLUP_ZMIN
+   #define ENDSTOPPULLUP_ZMIN
 #endif
 
 #ifdef ENDSTOPPULLUPS
   #define ENDSTOPPULLUP_XMAX
-  #define ENDSTOPPULLUP_YMAX
+  //#define ENDSTOPPULLUP_YMAX
   #define ENDSTOPPULLUP_ZMAX
   #define ENDSTOPPULLUP_XMIN
-  #define ENDSTOPPULLUP_YMIN
+  //#define ENDSTOPPULLUP_YMIN
   #define ENDSTOPPULLUP_ZMIN
 #endif
 
@@ -317,10 +317,10 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 #define DISABLE_E false // For all extruders
 #define DISABLE_INACTIVE_EXTRUDER true //disable only inactive extruders and keep active extruder enabled
 
-#define INVERT_X_DIR false    // for Mendel set to false, for Orca set to true
-#define INVERT_Y_DIR true    // for Mendel set to true, for Orca set to false
+#define INVERT_X_DIR true    // for Mendel set to false, for Orca set to true
+#define INVERT_Y_DIR false    // for Mendel set to true, for Orca set to false
 #define INVERT_Z_DIR false     // for Mendel set to false, for Orca set to true
-#define INVERT_E0_DIR true   // for direct drive extruder v9 set to true, for geared extruder set to false
+#define INVERT_E0_DIR false   // for direct drive extruder v9 set to true, for geared extruder set to false
 #define INVERT_E1_DIR false    // for direct drive extruder v9 set to true, for geared extruder set to false
 #define INVERT_E2_DIR false   // for direct drive extruder v9 set to true, for geared extruder set to false
 
